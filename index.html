@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Método OPM — Transforme influência em vendas</title>
+  <meta name="description" content="Método OPM: curso prático que transforma influência em vendas no automático. Bônus: +10.000 vídeos lifestyle em PLR. Oferta por tempo limitado.">
+  <!-- OG / SEO -->
+  <meta property="og:title" content="Método OPM — Transforme influência em vendas" />
+  <meta property="og:description" content="Curso de alta conversão com copy, gatilhos e comunicação persuasiva. Bônus incluso por tempo limitado." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#00FF66" />
+  <link rel="canonical" href="https://metodo-opm.example/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
+  <!-- Preload Cakto logo (WebP) if present -->
+  <link rel="preload" as="image" href="logo-cakto.webp" type="image/webp" />
+
+  <style>
+    :root{
+      --bg:#0B0B12;
+      --fg:#FFFFFF;
+      --muted:#A6AEC3;
+      --neon:#00FF66;
+      --neon-2:#16FF9A;
+      --card:#111423;
+      --border:#1b2035;
+      --success:#37FF8B;
+      --warning:#FFB385;
+      --accent:#7C5CFF;
+      --shadow: 0 0 24px rgba(0,255,102,.25), 0 0 64px rgba(0,255,102,.15);
+      --ring: 0 0 0 3px rgba(0,255,102,.35), 0 0 0 6px rgba(0,255,102,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--fg); background:var(--bg);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      line-height:1.6;
+      /* fundo com formas orgânicas e linhas */
+      background-image:
+        radial-gradient(1200px 600px at 20% -10%, rgba(0,255,102,.16), transparent 60%),
+        radial-gradient(900px 500px at 110% 110%, rgba(0,255,102,.10), transparent 60%),
+        radial-gradient(800px 400px at -10% 110%, rgba(124,92,255,.08), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.03) 0%, transparent 40%),
+        repeating-linear-gradient(160deg, rgba(255,255,255,.03) 0 2px, transparent 2px 6px);
+      background-attachment: fixed;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1120px; margin:0 auto; padding:0 20px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+      padding:14px 22px; border-radius:999px; font-weight:800; letter-spacing:.2px;
+      color:#0A0F17; background:linear-gradient(180deg,var(--neon),#29ff84); box-shadow: var(--shadow);
+      border:1px solid rgba(0,255,102,.55);
+      transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
+      position:relative;
+    }
+    .btn:hover{ transform:translateY(-1px) scale(1.01); filter:saturate(1.1) brightness(1.05); box-shadow:0 0 28px rgba(0,255,102,.35),0 0 60px rgba(0,255,102,.18) }
+    .btn:focus-visible{ outline:3px solid var(--neon-2); outline-offset:2px }
+    .btn.pulse{ animation:pulse 2.2s ease-in-out infinite }
+    @keyframes pulse{ 0%,100%{ box-shadow: var(--shadow) } 50%{ box-shadow:0 0 36px rgba(0,255,102,.45), 0 0 90px rgba(0,255,102,.22) } }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(6px); background:linear-gradient(to bottom, rgba(11,11,18,.85), rgba(11,11,18,.45));
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
+    .brand{font-family:Montserrat,Inter; font-weight:800; letter-spacing:.5px; font-size:1.1rem}
+    .brand .glow{color:var(--neon); text-shadow:0 0 18px rgba(0,255,102,.6)}
+    .nav .links{display:none}
+    @media (min-width: 768px){ .nav .links{display:block} }
+    .nav .cta{display:inline-flex; white-space:nowrap}
+    .nav .cta-sm{padding:10px 14px; font-weight:800}
+
+    /* Hero */
+    .hero{padding:84px 0 56px; position:relative}
+    .hero::after{
+      content:""; position:absolute; inset:-40px -20px auto; height:360px; z-index:-1;
+      background: radial-gradient(600px 220px at 10% 10%, rgba(0,255,102,.22), transparent 60%),
+                  radial-gradient(700px 240px at 90% 20%, rgba(22,255,154,.16), transparent 60%);
+      filter: blur(20px);
+      pointer-events:none;
+    }
+    .hero h1{
+      font-family:Montserrat,Inter; font-size: clamp(2rem, 4vw, 3rem);
+      line-height:1.15; margin:0 0 12px;
+    }
+    .hero p{color:var(--muted); font-size: clamp(1rem, 1.6vw, 1.125rem); margin:0 0 24px}
+    .hero-grid{display:grid; gap:28px}
+    @media (min-width: 960px){ .hero-grid{grid-template-columns: 1.2fr .8fr; align-items:center} }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--border); border-radius:16px; padding:18px;
+    }
+  .card--compact{ padding:14px }
+    .badges{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px}
+    .badge{
+      border:1px solid rgba(255,255,255,.08); color:#BFD6C7;
+      padding:6px 10px; border-radius:999px; font-size:.85rem
+    }
+
+    /* notifications mock */
+    .notif-wrap{height:320px; overflow:hidden; position:relative}
+    .notif{
+      display:flex; align-items:center; gap:12px; background:#0F1322; border:1px solid #1e2744;
+      padding:12px 14px; border-radius:14px; margin-bottom:12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.25); opacity:1; transform:translateY(0);
+    }
+    .notif .dot{width:12px; height:12px; border-radius:50%; background:var(--neon); box-shadow:0 0 12px rgba(0,255,102,.7)}
+    .notif .title{font-weight:700}
+    .notif .sub{color:#9fb1c6; font-size:.9rem}
+  .notif--compact{ padding:10px 12px; border-radius:12px; margin-bottom:8px }
+  .notif--compact .title{ font-size:.95rem }
+  .notif--compact .sub{ font-size:.85rem }
+
+    /* ticker (prova social estilo anúncio Cakto) */
+    .ticker{ position:relative; overflow:hidden; border-radius:14px; border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); height:56px; width:100% }
+    .ticker::before, .ticker::after{ content:""; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none }
+    .ticker::before{ left:0; background:linear-gradient(90deg, rgba(11,11,18,1), rgba(11,11,18,0)) }
+    .ticker::after{ right:0; background:linear-gradient(270deg, rgba(11,11,18,1), rgba(11,11,18,0)) }
+    .ticker-track{ display:flex; align-items:center; gap:10px; padding:8px 12px; white-space:nowrap; will-change:transform; pointer-events:none;
+      animation:scrollX 28s linear infinite }
+    .ticker:hover .ticker-track{ animation-play-state: paused }
+    @media (max-width: 768px){ .ticker{ display:none } }
+    @keyframes scrollX { from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
+    .ad-notif{ display:inline-flex; align-items:center; gap:10px; padding:8px 10px; background:#0F1322; border:1px solid #1e2744; border-radius:999px;
+      box-shadow:0 4px 14px rgba(0,0,0,.25); font-size:.95rem }
+    .ad-notif .dot{ width:10px; height:10px; border-radius:50%; background:var(--neon); box-shadow:0 0 10px rgba(0,255,102,.6) }
+    .ad-notif .txt{ display:flex; gap:10px; align-items:baseline }
+    .ad-notif .title{ font-weight:700 }
+    .ad-notif .amount{ color:#B9FFD7; font-weight:800 }
+    .ad-notif .via{ color:#9fb1c6; font-size:.85rem }
+
+    /* Cakto notification (1:1 app icon) */
+    .cakto-stack{ display:grid; gap:12px }
+    .cakto-notif{ display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:16px;
+      background:#0D1321; border:1px solid #1e2744; box-shadow:0 6px 18px rgba(0,0,0,.28) }
+    /* Brand-like app badge: full Cakto logo (rounded square + cactus) */
+    .cakto-app{ flex:0 0 36px; width:36px; height:36px; border-radius:12px; background:#FFFFFF;
+      display:grid; place-items:center; box-shadow:0 2px 10px rgba(0,0,0,.25); overflow:hidden }
+    .cakto-app svg{ width:100%; height:100%; display:block }
+    .cakto-app .cakto-logo{ width:100%; height:100%; display:block; object-fit:contain; background:#FFFFFF }
+  /* Compact version for hero notifications */
+  .cakto-app--sm{ width:24px; height:24px; border-radius:8px; box-shadow:0 1px 6px rgba(0,0,0,.18) }
+    .cakto-body{ display:flex; flex-direction:column; min-width:0 }
+    .cakto-title{ font-weight:700 }
+    .cakto-sub{ color:#9fb1c6; font-size:.95rem; margin-top:2px }
+    .cakto-time{ margin-left:auto; color:#93a1b8; font-size:.85rem; white-space:nowrap }
+
+    /* Sections */
+    section{padding:64px 0}
+    .section-title{
+      font-family:Montserrat,Inter; font-size: clamp(1.6rem, 2.6vw, 2.2rem); margin:0 0 18px;
+    }
+    .grid-2{display:grid; gap:20px}
+    @media (min-width: 900px){ .grid-2{grid-template-columns: 1fr 1fr} }
+  /* Offer layout prioritization (desktop only) */
+  .offer-grid{ display:grid; gap:20px }
+  @media (min-width: 900px){ .offer-grid{ grid-template-columns: 1.6fr 1fr; align-items:start } }
+  @media (min-width: 1200px){ .offer-grid{ grid-template-columns: 1.8fr 1fr } }
+
+    /* Benefits */
+    .benefits{ display:grid; gap:14px }
+    @media (min-width: 720px){ .benefits{ grid-template-columns: repeat(2, 1fr) } }
+    @media (min-width: 1040px){ .benefits{ grid-template-columns: repeat(3, 1fr) } }
+    .benefit{
+      display:flex; gap:12px; align-items:flex-start; padding:14px; border-radius:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      border:1px solid rgba(0,255,102,.18);
+      transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .benefit:hover{ transform: translateY(-2px); box-shadow:0 0 22px rgba(0,255,102,.12); border-color: rgba(0,255,102,.35) }
+    .benefit .icon{ flex:0 0 28px; color:var(--neon) }
+    .benefit h4{ margin:0; font-family:Montserrat; font-size:1rem }
+    .benefit p{ margin:4px 0 0; color:var(--muted); font-size:.95rem }
+
+    /* Offer */
+    .offer-box{
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border:1px solid rgba(0,255,102,.35); border-radius:18px; padding:20px; box-shadow:0 0 28px rgba(0,255,102,.08);
+    }
+    .price{font-family:Montserrat,Inter; font-size: clamp(2rem,3.4vw,2.6rem)}
+    .strike{color:#93a1b8; text-decoration: line-through; margin-right:10px}
+    .timer{font-variant-numeric: tabular-nums; font-weight:800; color:#00ff9d; font-family:monospace; letter-spacing:.08em; text-shadow:0 0 18px rgba(0,255,157,.4)}
+    .timer-box{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid rgba(0,255,102,.25); border-radius:12px; background:rgba(0,0,0,.25) }
+
+    /* Guarantee */
+    .guarantee{display:flex; gap:14px; align-items:flex-start; background:#0F1524; border:1px dashed #2b365e; padding:16px; border-radius:16px}
+    .shield{ filter: drop-shadow(0 0 12px rgba(0,255,102,.35)) }
+
+    /* Footer */
+    footer{border-top:1px solid var(--border); padding:36px 0 60px; color:#9fb1c6}
+
+    /* Utilities */
+    .center{text-align:center}
+    .mt8{margin-top:8px} .mt16{margin-top:16px} .mt24{margin-top:24px} .mt32{margin-top:32px}
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap}
+    .kicker{color:#B9FFD7; font-weight:700; letter-spacing:.12em; font-size:.8rem}
+    .w-full{width:100%}
+    .center-items{display:flex; align-items:center; justify-content:center}
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header aria-label="Barra de navegação">
+    <div class="container nav">
+      <div class="brand" aria-label="Marca"><span class="glow">Método</span> OPM</div>
+      <nav aria-label="Seções" class="links">
+        <div class="row">
+          <a href="#beneficios" class="muted">Benefícios</a>
+          <a href="#oferta" class="muted">Oferta</a>
+          <a href="#prova" class="muted">Prova Social</a>
+          <a href="#garantia" class="muted">Garantia</a>
+        </div>
+      </nav>
+      <a href="#checkout" class="btn cta cta-sm" data-checkout aria-label="Quero o Método OPM">Quero o Método OPM</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="topo">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker">LANÇAMENTO</span>
+        <h1>Método OPM</h1>
+        <p>Transforme <strong>influência</strong> em <strong>vendas</strong> — comunicação direta, gatilhos éticos e histórias que convertem.</p>
+        <div class="cta-row">
+          <a href="#checkout" class="btn pulse" data-checkout aria-label="Garantir meu acesso agora">Garantir meu acesso agora</a>
+          <a href="#beneficios" class="muted" aria-label="Ver benefícios">Ver benefícios ↓</a>
+        </div>
+        <div class="badges mt16">
+          <span class="badge">Acesso imediato</span>
+          <span class="badge">Conteúdo prático</span>
+          <span class="badge">Bônus incluso</span>
+        </div>
+      </div>
+
+      <!-- Notificações (mock animado) -->
+      <div class="card" aria-label="Prova social: notificações de vendas">
+        <div class="row" style="justify-content:space-between">
+          <strong>Vendas em tempo real (mock)</strong>
+          <small class="muted">exibição ilustrativa</small>
+        </div>
+        <div class="notif-wrap" id="notifWrap">
+          <!-- itens são reciclados via JS -->
+          <div class="notif"><div class="cakto-app cakto-app--sm" aria-hidden="true"><img class="cakto-logo" src="logo-cakto.webp" alt="" onerror="this.style.display='none'"/><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="4" y="4" width="40" height="40" rx="11" fill="#FFFFFF"/><path fill="#0B0B12" d="M25 11c3.314 0 6 2.686 6 6v4h2a3 3 0 1 1 0 6h-2v4c0 4.418-3.582 8-8 8h-2c-4.418 0-8-3.582-8-8v-1h-1a3 3 0 1 1 0-6h1V17c0-3.314 2.686-6 6-6s6 2.686 6 6v14a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V20h3v11h1V17c0-1.105.895-2 2-2s2 .895 2 2v4h3v-4c0-3.314-2.686-6-6-6Z"/></svg></div><div><div class="title">Venda Aprovada!</div><div class="sub">Sua comissão R$ 117,48 • há 1h</div></div></div>
+          <div class="notif"><div class="cakto-app cakto-app--sm" aria-hidden="true"><img class="cakto-logo" src="logo-cakto.webp" alt="" onerror="this.style.display='none'"/><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="4" y="4" width="40" height="40" rx="11" fill="#FFFFFF"/><path fill="#0B0B12" d="M25 11c3.314 0 6 2.686 6 6v4h2a3 3 0 1 1 0 6h-2v4c0 4.418-3.582 8-8 8h-2c-4.418 0-8-3.582-8-8v-1h-1a3 3 0 1 1 0-6h1V17c0-3.314 2.686-6 6-6s6 2.686 6 6v14a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V20h3v11h1V17c0-1.105.895-2 2-2s2 .895 2 2v4h3v-4c0-3.314-2.686-6-6-6Z"/></svg></div><div><div class="title">Pix Gerado!</div><div class="sub">Sua comissão R$ 80,54 • ontem 15:49</div></div></div>
+          <div class="notif"><div class="cakto-app cakto-app--sm" aria-hidden="true"><img class="cakto-logo" src="logo-cakto.webp" alt="" onerror="this.style.display='none'"/><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="4" y="4" width="40" height="40" rx="11" fill="#FFFFFF"/><path fill="#0B0B12" d="M25 11c3.314 0 6 2.686 6 6v4h2a3 3 0 1 1 0 6h-2v4c0 4.418-3.582 8-8 8h-2c-4.418 0-8-3.582-8-8v-1h-1a3 3 0 1 1 0-6h1V17c0-3.314 2.686-6 6-6s6 2.686 6 6v14a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V20h3v11h1V17c0-1.105.895-2 2-2s2 .895 2 2v4h3v-4c0-3.314-2.686-6-6-6Z"/></svg></div><div><div class="title">Venda Aprovada!</div><div class="sub">Sua comissão R$ 108,44 • ontem 14:29</div></div></div>
+          <div class="notif"><div class="cakto-app cakto-app--sm" aria-hidden="true"><img class="cakto-logo" src="logo-cakto.webp" alt="" onerror="this.style.display='none'"/><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="4" y="4" width="40" height="40" rx="11" fill="#FFFFFF"/><path fill="#0B0B12" d="M25 11c3.314 0 6 2.686 6 6v4h2a3 3 0 1 1 0 6h-2v4c0 4.418-3.582 8-8 8h-2c-4.418 0-8-3.582-8-8v-1h-1a3 3 0 1 1 0-6h1V17c0-3.314 2.686-6 6-6s6 2.686 6 6v14a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V20h3v11h1V17c0-1.105.895-2 2-2s2 .895 2 2v4h3v-4c0-3.314-2.686-6-6-6Z"/></svg></div><div><div class="title">Pix Gerado!</div><div class="sub">Sua comissão R$ 164,25 • dom 12:06</div></div></div>
+          <div class="notif"><div class="cakto-app cakto-app--sm" aria-hidden="true"><img class="cakto-logo" src="logo-cakto.webp" alt="" onerror="this.style.display='none'"/><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="4" y="4" width="40" height="40" rx="11" fill="#FFFFFF"/><path fill="#0B0B12" d="M25 11c3.314 0 6 2.686 6 6v4h2a3 3 0 1 1 0 6h-2v4c0 4.418-3.582 8-8 8h-2c-4.418 0-8-3.582-8-8v-1h-1a3 3 0 1 1 0-6h1V17c0-3.314 2.686-6 6-6s6 2.686 6 6v14a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V20h3v11h1V17c0-1.105.895-2 2-2s2 .895 2 2v4h3v-4c0-3.314-2.686-6-6-6Z"/></svg></div><div><div class="title">Pix Gerado!</div><div class="sub">Sua comissão R$ 108,44 • sáb 19:47</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section id="beneficios" aria-labelledby="beneficios-title">
+    <div class="container grid-2">
+      <div>
+        <h2 class="section-title" id="beneficios-title">O que você vai aprender</h2>
+        <p class="muted">No <strong>Método OPM</strong>, você ganha ferramentas práticas para comunicar com impacto e converter com ética — mesmo começando do zero.</p>
+        <div class="benefits mt16" role="list">
+          <div class="benefit" role="listitem">
+            <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Influência ética</h4>
+              <p>Use princípios de persuasão com responsabilidade para aumentar conversões.</p>
+            </div>
+          </div>
+          <div class="benefit" role="listitem">
+            <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Comunicação clara</h4>
+              <p>Estruturas de mensagem que prendem atenção e geram confiança.</p>
+            </div>
+          </div>
+          <div class="benefit" role="listitem">
+            <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Gatilhos que aceleram</h4>
+              <p>Como usar escassez, prova e autoridade de forma honesta.</p>
+            </div>
+          </div>
+          <div class="benefit" role="listitem">
+            <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Linguagem corporal</h4>
+              <p>Leia sinais para ajustar a abordagem e quebrar objeções.</p>
+            </div>
+          </div>
+          <div class="benefit" role="listitem">
+            <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Storytelling que vende</h4>
+              <p>Narre histórias que conectam, educam e levam à ação.</p>
+            </div>
+          </div>
+          <div class="benefit" role="listitem">
+            <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Implementação prática</h4>
+              <p>Templates prontos para aplicar hoje no seu funil.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lead form -->
+      <div class="card" aria-label="Cadastro de interesse">
+        <h3 style="margin:0 0 6px;font-family:Montserrat">Entre para a lista VIP</h3>
+        <p class="muted">Receba avisos de desconto e bônus exclusivos.</p>
+        <form id="leadForm" class="mt16" aria-label="Formulário de captura">
+          <label for="email" class="muted">Seu e‑mail</label>
+          <input id="email" name="email" type="email" required placeholder="voce@email.com" 
+                 style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0E1220;color:var(--fg);margin:6px 0 12px" />
+          <button class="btn" type="submit" aria-label="Cadastrar e-mail">Quero entrar</button>
+          <small class="muted mt8" style="display:block">Prometemos não enviar spam.</small>
+        </form>
+        <div id="leadToast" style="display:none" role="status" aria-live="polite" class="mt16">✅ Obrigado! E‑mail cadastrado (stub local).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="oferta" aria-labelledby="oferta-title">
+    <div class="container offer-grid">
+      <div>
+        <h2 class="section-title" id="oferta-title">Oferta + Bônus</h2>
+        <p class="muted">Leve também um <strong>pack de +10.000 vídeos lifestyle em PLR</strong> para turbinar conteúdo e anúncios.</p>
+        <div class="offer-box mt16">
+          <div class="row" style="justify-content:flex-start; align-items:baseline">
+            <span class="strike">R$ 97,00</span>
+            <span class="price">R$ 49,90</span>
+          </div>
+          <div class="mt8 center-items">
+            <div class="timer-box" aria-live="polite" aria-atomic="true">⏳ <span class="timer" id="timer">--:--:--</span></div>
+          </div>
+          <div class="cta-row mt16">
+            <a href="#checkout" class="btn pulse" data-checkout aria-label="Comprar Agora por R$19,90">Comprar Agora por R$19,90</a>
+            <a href="#garantia" class="muted">Ver garantia</a>
+          </div>
+          <ul class="mt16 muted" style="padding-left:18px">
+            <li>Acesso imediato ao curso</li>
+            <li>Bônus incluso sem custo adicional</li>
+            <li>Atualizações futuras</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Notificações estilo Cakto (stack) -->
+      <div class="card card--compact">
+        <strong id="prova">Prova Social</strong>
+        <p class="muted mt8">Esses são resultados reais de quem aplica a metodologia.</p>
+        <div class="cakto-stack mt16" aria-label="Lista de notificações">
+          <div class="cakto-notif">
+            <div class="cakto-app" aria-hidden="true">
+              <!-- Prefer WebP logo if available; fallback to inline SVG -->
+              <img class="cakto-logo" src="logo-cakto.webp" alt="" onerror="this.style.display='none'" />
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <rect x="4" y="4" width="40" height="40" rx="11" fill="#FFFFFF"/>
+                <path fill="#0B0B12" d="M25 11c3.314 0 6 2.686 6 6v4h2a3 3 0 1 1 0 6h-2v4c0 4.418-3.582 8-8 8h-2c-4.418 0-8-3.582-8-8v-1h-1a3 3 0 1 1 0-6h1V17c0-3.314 2.686-6 6-6s6 2.686 6 6v14a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V20h3v11h1V17c0-1.105.895-2 2-2s2 .895 2 2v4h3v-4c0-3.314-2.686-6-6-6Z"/>
+              </svg>
+            </div>
+            <div class="cakto-body"><div class="cakto-title">Venda aprovada!</div><div class="cakto-sub">Sua comissão: R$ 36,55</div></div>
+            <div class="cakto-time">há 17m</div>
+          </div>
+          <div class="cakto-notif">
+            <div class="cakto-app" aria-hidden="true">
+              <img class="cakto-logo" src="logo-cakto.webp" alt="" onerror="this.style.display='none'" />
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <rect x="4" y="4" width="40" height="40" rx="11" fill="#FFFFFF"/>
+                <path fill="#0B0B12" d="M25 11c3.314 0 6 2.686 6 6v4h2a3 3 0 1 1 0 6h-2v4c0 4.418-3.582 8-8 8h-2c-4.418 0-8-3.582-8-8v-1h-1a3 3 0 1 1 0-6h1V17c0-3.314 2.686-6 6-6s6 2.686 6 6v14a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V20h3v11h1V17c0-1.105.895-2 2-2s2 .895 2 2v4h3v-4c0-3.314-2.686-6-6-6Z"/>
+              </svg>
+            </div>
+            <div class="cakto-body"><div class="cakto-title">Venda aprovada!</div><div class="cakto-sub">Sua comissão: R$ 19,19</div></div>
+            <div class="cakto-time">há 30m</div>
+          </div>
+          <div class="cakto-notif">
+            <div class="cakto-app" aria-hidden="true">
+              <img class="cakto-logo" src="logo-cakto.webp" alt="" onerror="this.style.display='none'" />
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <rect x="4" y="4" width="40" height="40" rx="11" fill="#FFFFFF"/>
+                <path fill="#0B0B12" d="M25 11c3.314 0 6 2.686 6 6v4h2a3 3 0 1 1 0 6h-2v4c0 4.418-3.582 8-8 8h-2c-4.418 0-8-3.582-8-8v-1h-1a3 3 0 1 1 0-6h1V17c0-3.314 2.686-6 6-6s6 2.686 6 6v14a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V20h3v11h1V17c0-1.105.895-2 2-2s2 .895 2 2v4h3v-4c0-3.314-2.686-6-6-6Z"/>
+              </svg>
+            </div>
+            <div class="cakto-body"><div class="cakto-title">Venda aprovada!</div><div class="cakto-sub">Sua comissão: R$ 36,55</div></div>
+            <div class="cakto-time">há 39m</div>
+          </div>
+          <div class="cakto-notif">
+            <div class="cakto-app" aria-hidden="true">
+              <img class="cakto-logo" src="logo-cakto.webp" alt="" onerror="this.style.display='none'" />
+              <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <rect x="4" y="4" width="40" height="40" rx="11" fill="#FFFFFF"/>
+                <path fill="#0B0B12" d="M25 11c3.314 0 6 2.686 6 6v4h2a3 3 0 1 1 0 6h-2v4c0 4.418-3.582 8-8 8h-2c-4.418 0-8-3.582-8-8v-1h-1a3 3 0 1 1 0-6h1V17c0-3.314 2.686-6 6-6s6 2.686 6 6v14a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3V20h3v11h1V17c0-1.105.895-2 2-2s2 .895 2 2v4h3v-4c0-3.314-2.686-6-6-6Z"/>
+              </svg>
+            </div>
+            <div class="cakto-body"><div class="cakto-title">Venda aprovada!</div><div class="cakto-sub">Sua comissão: R$ 19,19</div></div>
+            <div class="cakto-time">há 41m</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIA -->
+  <section id="garantia" aria-labelledby="garantia-title">
+    <div class="container">
+      <div class="guarantee">
+        <svg class="shield" width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z" stroke="#00FF66" stroke-width="2"/></svg>
+        <div>
+          <h3 class="section-title" id="garantia-title" style="font-size:1.5rem;margin:0 0 6px">Garantia 7 dias — ou seu dinheiro de volta</h3>
+          <p class="muted">Teste sem risco. Se não fizer sentido, devolvemos <strong>100%</strong> do valor em até 7 dias. Simples e sem burocracia.</p>
+          <div class="mt16"><a href="#checkout" class="btn" data-checkout aria-label="Começar sem risco">Começar sem risco</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="center">
+    <div class="container">
+      <div class="brand"><span class="glow">Método</span> OPM</div>
+      <p class="mt8">© <span id="y"></span> OPM. Todos os direitos reservados.</p>
+      <div class="row center mt8" style="justify-content:center">
+        <a class="muted" href="#!" aria-label="Política de Privacidade">Política de Privacidade</a> •
+        <a class="muted" href="#!" aria-label="Termos de Uso">Termos de Uso</a>
+      </div>
+      <div class="mt24">
+        <a href="#checkout" class="btn pulse" data-checkout aria-label="Quero o Método OPM agora">Quero o Método OPM agora</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // === CONFIG ===
+  // URL para se tornar afiliado (Cakto/Kiwify). Atualize aqui quando necessário.
+  const CHECKOUT_URL = 'https://app.cakto.com.br/affiliate/invite/c1624cf3-dba1-4421-9950-79ff74b9bfb3';
+
+    // Ano no rodapé
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Aplicar URL de checkout em todos os botões com data-checkout
+    document.querySelectorAll('[data-checkout]')
+      .forEach(a => { a.setAttribute('href', CHECKOUT_URL); a.setAttribute('rel','noopener'); a.setAttribute('target','_blank'); });
+
+    // Loop simples de notificações (move o primeiro para o final a cada 2.4s)
+    const wrap = document.getElementById('notifWrap');
+    function cycleWithFade() {
+      if (!wrap) return;
+      const first = wrap.firstElementChild;
+      if (!first) return;
+      first.style.transition = 'transform .45s ease, opacity .45s ease';
+      first.style.transform = 'translateY(-16px)';
+      first.style.opacity = '0';
+      setTimeout(() => {
+        first.style.transition = 'opacity .45s ease, transform .45s ease';
+        first.style.transform = 'translateY(0)';
+        first.style.opacity = '1';
+        wrap.appendChild(first);
+      }, 460);
+      // próximo ciclo com atraso aleatório
+      const next = 1400 + Math.random()*2200; // 1.4s a 3.6s
+      setTimeout(cycleWithFade, next);
+    }
+    setTimeout(cycleWithFade, 1200);
+
+    // Contador regressivo (2h a partir do carregamento)
+    const endAt = Date.now() + 2 * 60 * 60 * 1000;
+    const timerEl = document.getElementById('timer');
+    function pad(n){ return n.toString().padStart(2,'0'); }
+    function tick(){
+      const left = Math.max(0, endAt - Date.now());
+      const h = Math.floor(left/3.6e6);
+      const m = Math.floor((left%3.6e6)/6e4);
+      const s = Math.floor((left%6e4)/1e3);
+      if (timerEl) timerEl.textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
+      if (left <= 0) clearInterval(t);
+    }
+    const t = setInterval(tick, 1000); tick();
+
+    // Lead form (stub local)
+    const leadForm = document.getElementById('leadForm');
+    const toast = document.getElementById('leadToast');
+    leadForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = (document.getElementById('email')).value.trim();
+      if(!email) return;
+      try {
+        const list = JSON.parse(localStorage.getItem('opm_leads')||'[]');
+        list.push({email, at:new Date().toISOString()});
+        localStorage.setItem('opm_leads', JSON.stringify(list));
+        toast.style.display='block';
+        leadForm.reset();
+      } catch(err){ console.error(err); }
+    });
+
+  // (ticker removido)
+  </script>
+</body>
+</html>
